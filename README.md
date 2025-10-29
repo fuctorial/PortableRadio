@@ -1,7 +1,5 @@
 # PortableRadio for Minecraft 1.7.10
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 A Minecraft 1.7.10 mod that adds walkie-talkies with fully functional in-game voice chat, designed for realism and performance.
 
 ![PortableRadio GUI](https://i.imgur.com/s3TwICQ.png)
