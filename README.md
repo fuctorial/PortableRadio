@@ -4,7 +4,7 @@
 
 A Minecraft 1.7.10 mod that adds walkie-talkies with fully functional in-game voice chat, designed for realism and performance.
 
-![PortableRadio GUI](https://imgur.com/a/5JPFflW)
+![PortableRadio GUI](https://imgur.com/s3TwICQ)
 
 ## 🌟 Features
 
