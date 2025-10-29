@@ -170,6 +170,19 @@ public class ItemWalkieTalkie extends Item {
     }
 
     @Override
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+
+        if (!player.isSneaking()) {
+            if (!world.isRemote) {
+                player.openGui(PortableRadio.instance, GuiHandler.WALKIE_TALKIE_GUI_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ);
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack) {
         return false;
