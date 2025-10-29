@@ -1,0 +1,20 @@
+{
+  "radio_on": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "portableradio:radio_on",
+        "stream": false
+      }
+    ]
+  },
+  "radio_off": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "portableradio:radio_off",
+        "stream": false
+      }
+    ]
+  }
+}в

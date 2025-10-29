@@ -1,0 +1,39 @@
+item.walkieTalkie.name=Walkie Talkie
+
+gui.portableradio.frequency=Frequency
+gui.portableradio.microphone=Microphone
+gui.portableradio.speaker=Speaker
+gui.portableradio.mic_volume=Mic Volume
+gui.portableradio.speaker_volume=Speaker Volume
+gui.portableradio.status=Status
+gui.portableradio.status.on=ON
+gui.portableradio.status.off=OFF
+gui.portableradio.hint.ptt=Hold %s to transmit
+gui.portableradio.no_devices=No devices found
+gui.portableradio.testing_microphone=Testing microphone...
+gui.portableradio.testing_speaker=Testing speaker...
+gui.portableradio.test_completed=Test completed
+gui.portableradio.error=Error during test
+gui.portableradio.microphone_not_found=Microphone not found
+gui.portableradio.speaker_not_found=Speaker not found
+gui.portableradio.failed_open_microphone=Failed to open microphone
+gui.portableradio.failed_open_speaker=Failed to open speaker
+gui.portableradio.select_microphone_first=Select a microphone first
+gui.portableradio.select_speaker_first=Select a speaker first
+
+chat.portableradio.turned_on=Radio turned ON
+chat.portableradio.turned_off=Radio turned OFF
+chat.portableradio.no_microphone_selected=No microphone selected! Open radio settings.
+chat.portableradio.microphone_unavailable=Selected microphone unavailable
+
+tooltip.portableradio.toggle=Hold %s and right-click to toggle
+tooltip.portableradio.open_gui=%s to open settings
+
+key.portableradio.p_t_t=Push-to-Talk
+key.categories.portableradio=Portable Radio
+chat.portableradio.turn_on_first=§eTurn the radio on first (§fShift + RMB§e)!
+chat.portableradio.cooldown=§cPlease wait...
+
+tooltip.portableradio.toggle=Toggle Power: %s
+tooltip.portableradio.open_gui=Open Settings: %s
+tooltip.portableradio.transmit=Transmit (Hold): %s

@@ -1,0 +1,162 @@
+// Оставляем ваш buildscript без изменений, так как он нужен для вашего патченного ForgeGradle
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "ForgeGradlePatch"
+            url  = "https://github.com/juanmuscaria/maven/raw/master"
+        }
+    }
+    dependencies {
+        classpath "net.minecraftforge.gradle:ForgeGradle:[1.2-1.4.6-SNAPSHOT,)"
+    }
+}
+
+// Репозитории оставляем как есть
+repositories {
+    flatDir { dirs 'deps' }
+    mavenCentral()
+    maven { name = "MinecraftForge"; url = "https://maven.minecraftforge.net/" }
+    maven { name = "Minecraft";      url = "https://libraries.minecraft.net/" }
+    maven { name = "Sonatype";       url = "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { name = "CurseForge";     url = "https://www.cursemaven.com" }
+    jcenter()
+}
+
+apply plugin: 'forge'
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+version = "1.0"
+group   = "fuctorial.fuctorize"
+archivesBaseName = "Fuctorize"
+
+// !!! ИЗМЕНЕНИЕ 1: УДАЛЯЕМ НЕСТАНДАРТНЫЙ sourceSets !!!
+// Gradle по умолчанию будет использовать стандартный путь 'src/main/resources'.
+// Это лучшая практика. Убедитесь, что ваши папки 'assets' и 'mcmod.info' лежат именно там.
+
+minecraft {
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    runDir = "minecraft-debug"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+// Оставляем ваш блок для локального MCP без изменений
+afterEvaluate {
+    downloadMcpTools.enabled = false
+    task copyMcpFile(type: Copy) {
+        from "${projectDir}/mcp/mcp_stable-12-1.7.10.zip"
+        into "${gradle.gradleUserHomeDir}/caches/minecraft/de/oceanlabs/mcp/mcp_stable/12-1.7.10/"
+        rename { "mcp_stable-12-1.7.10.zip" }
+    }
+    tasks.matching { it.name == 'extractMcpData' }.all {
+        dependsOn copyMcpFile
+        enabled = false
+    }
+}
+
+configurations {
+    embed
+    compile.extendsFrom embed
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile fileTree(dir: 'deps', include: '*.jar')
+}
+
+jar {
+    from {
+        configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+build.dependsOn jar
+
+// !!! ИЗМЕНЕНИЕ 2: ПОЛНОСТЬЮ ПЕРЕПИСЫВАЕМ processResources НА ПРАВИЛЬНЫЙ ВАРИАНТ !!!
+processResources {
+    // Эта часть будет обрабатывать все ресурсы
+    from(sourceSets.main.resources.srcDirs) {
+        // Мы хотим применить замену текста (expand) ТОЛЬКО к файлу mcmod.info
+        include 'mcmod.info'
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    // Эта часть скопирует ВСЕ ОСТАЛЬНЫЕ ресурсы (включая папку assets) без изменений.
+    from(sourceSets.main.resources.srcDirs) {
+        // Исключаем mcmod.info, так как мы его уже обработали выше, чтобы не было дубликатов.
+        exclude 'mcmod.info'
+    }
+}
+
+
+
+import java.util.zip.ZipFile
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
+
+/**
+ * Перепаковывает собранный jar и добавляет Archive Comment.
+ */
+task addArchiveComment {
+    description = "Rewrites the just-built JAR to include an archive comment"
+    group = "build"
+
+    // Убедимся, что jar собран до нас
+    dependsOn jar
+
+    doLast {
+        // Путь к только что сгенерированному JAR
+        File jarFile = jar.archivePath
+
+        // Временный файл, куда будем писать новый JAR
+        File tmpFile = new File(jarFile.parentFile, jarFile.name + ".tmp")
+
+        // Открываем исходный JAR для чтения
+        ZipFile zipIn = new ZipFile(jarFile)
+
+        // Открываем новый поток для записи
+        ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(tmpFile))
+        // И вот тут задаём Archive Comment
+        zipOut.setComment( // ЗДЕСЬ СТАВЬ КОММЕНТАРИЙ ДЛЯ ДЖАВА ИНЖЕКТОРА. ЧТОБЫ РАЗОБРАТЬСЯ ЧТО ЗА КОММЕНТ СКОРМИ НЕЙРОНКИ СУРСЫ ДЖАВАИНЖЕКТОРА С ГИТХАБА
+                "fuck.fuck.fuck\n" +
+                        "net.minecraft.launchwrapper.LaunchClassLoader"
+        )
+
+        // Копируем все записи из старого JAR в новый
+        zipIn.entries().each { entry ->
+            ZipEntry newEntry = new ZipEntry(entry.name)
+            newEntry.time = entry.time
+            zipOut.putNextEntry(newEntry)
+            zipIn.getInputStream(entry).withCloseable { is ->
+                // копируем байт-за-байтом
+                byte[] buffer = new byte[8192]
+                int len
+                while ((len = is.read(buffer)) > 0) {
+                    zipOut.write(buffer, 0, len)
+                }
+            }
+            zipOut.closeEntry()
+        }
+
+        // Закрываем потоки
+        zipOut.close()
+        zipIn.close()
+
+        // Заменяем старый jar на новый
+        if (!jarFile.delete()) {
+            throw new GradleException("Could not delete original JAR: $jarFile")
+        }
+        if (!tmpFile.renameTo(jarFile)) {
+            throw new GradleException("Could not rename temp JAR to original name")
+        }
+
+        println "✔ Added archive comment to $jarFile"
+    }
+}
+
+// Гарантируем, что после сборки (build) комментарий будет добавлен
+//build.finalizedBy addArchiveComment

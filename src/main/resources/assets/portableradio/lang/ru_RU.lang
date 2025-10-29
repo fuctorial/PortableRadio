@@ -1,0 +1,38 @@
+item.walkieTalkie.name=Портативная рация
+
+gui.portableradio.frequency=Частота
+gui.portableradio.microphone=Микрофон
+gui.portableradio.speaker=Динамик
+gui.portableradio.mic_volume=Громкость микрофона
+gui.portableradio.speaker_volume=Громкость динамика
+gui.portableradio.status=Статус
+gui.portableradio.status.on=ВКЛ
+gui.portableradio.status.off=ВЫКЛ
+gui.portableradio.hint.ptt=Зажмите %s для передачи
+gui.portableradio.no_devices=Устройства не найдены
+gui.portableradio.testing_microphone=Тестирование микрофона...
+gui.portableradio.testing_speaker=Тестирование динамика...
+gui.portableradio.test_completed=Тест завершён
+gui.portableradio.error=Ошибка теста
+gui.portableradio.microphone_not_found=Микрофон не найден
+gui.portableradio.speaker_not_found=Динамик не найден
+gui.portableradio.failed_open_microphone=Не удалось открыть микрофон
+gui.portableradio.failed_open_speaker=Не удалось открыть динамик
+gui.portableradio.select_microphone_first=Сначала выберите микрофон
+gui.portableradio.select_speaker_first=Сначала выберите динамик
+
+chat.portableradio.turned_on=Рация включена
+chat.portableradio.turned_off=Рация выключена
+chat.portableradio.no_microphone_selected=Микрофон не выбран! Откройте настройки рации.
+chat.portableradio.microphone_unavailable=Выбранный микрофон недоступен
+
+tooltip.portableradio.toggle=Зажмите %s и ПКМ для вкл/выкл
+tooltip.portableradio.open_gui=%s чтобы открыть настройки
+
+key.portableradio.p_t_t=Передача голоса
+key.categories.portableradio=Портативная рация
+chat.portableradio.turn_on_first=§eСначала включите рацию (§fShift + ПКМ§e)!
+chat.portableradio.cooldown=§cПодождите немного...
+tooltip.portableradio.toggle=Включить/Выключить: %s
+tooltip.portableradio.open_gui=Настройки: %s
+tooltip.portableradio.transmit=Говорить (удерживать): %s

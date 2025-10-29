@@ -1,0 +1,50 @@
+# Intellij IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Gradle
+.gradle/
+build/
+gradle/
+gradlew
+gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# macOS
+.DS_Store
+
+# User-specific files and directories
+minecraft/
+minecraft-debug/
+user_jvm_args.txt
+eclipse/
+out/
+bin/
+
+# Logs
+*.log
+logs/
+
+# Build artifacts and dependencies
+libs/
+deps/
+mcp/
+forge/
+jars/
+versions/
+assets/indexes/
+assets/objects/
+unpacked/
+temp/
+
+# Other
+mcp_stable-*.zip
+*.srg
+*~
