@@ -1,3 +1,4 @@
+[English](./README.md) | [Русский](./README_ru.md) | [中文](./README_zh.md)
 # PortableRadio for Minecraft 1.7.10
 
 A Minecraft 1.7.10 mod that adds walkie-talkies with fully functional in-game voice chat, designed for realism and performance.
