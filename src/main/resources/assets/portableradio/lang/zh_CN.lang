@@ -1,0 +1,39 @@
+item.walkieTalkie.name=对讲机
+
+gui.portableradio.frequency=频率
+gui.portableradio.microphone=麦克风
+gui.portableradio.speaker=扬声器
+gui.portableradio.mic_volume=麦克风音量
+gui.portableradio.speaker_volume=扬声器音量
+gui.portableradio.status=状态
+gui.portableradio.status.on=开
+gui.portableradio.status.off=关
+gui.portableradio.hint.ptt=按住 %s 发言
+gui.portableradio.no_devices=未找到设备
+gui.portableradio.testing_microphone=正在测试麦克风...
+gui.portableradio.testing_speaker=正在测试扬声器...
+gui.portableradio.test_completed=测试完成
+gui.portableradio.error=测试时出错
+gui.portableradio.microphone_not_found=未找到麦克风
+gui.portableradio.speaker_not_found=未找到扬声器
+gui.portableradio.failed_open_microphone=无法打开麦克风
+gui.portableradio.failed_open_speaker=无法打开扬声器
+gui.portableradio.select_microphone_first=请先选择麦克风
+gui.portableradio.select_speaker_first=请先选择扬声器
+
+chat.portableradio.turned_on=对讲机已开启
+chat.portableradio.turned_off=对讲机已关闭
+chat.portableradio.no_microphone_selected=未选择麦克风！请打开对讲机设置。
+chat.portableradio.microphone_unavailable=所选麦克风不可用
+
+tooltip.portableradio.toggle=按住 %s 并右键点击以切换开关
+tooltip.portableradio.open_gui=按 %s 打开设置
+
+key.portableradio.p_t_t=按键通话
+key.categories.portableradio=便携式对讲机
+chat.portableradio.turn_on_first=§e请先打开对讲机 (§fShift + 右键§e)！
+chat.portableradio.cooldown=§c请稍候...
+
+tooltip.portableradio.toggle=切换开关: %s
+tooltip.portableradio.open_gui=打开设置: %s
+tooltip.portableradio.transmit=发射（按住）: %s
