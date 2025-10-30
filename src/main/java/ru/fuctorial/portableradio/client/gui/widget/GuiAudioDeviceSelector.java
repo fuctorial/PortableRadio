@@ -10,7 +10,6 @@ import ru.fuctorial.portableradio.client.audio.AudioDeviceManager;
 
 import java.util.List;
 
-
 @SideOnly(Side.CLIENT)
 public class GuiAudioDeviceSelector extends GuiButton {
 
@@ -19,16 +18,13 @@ public class GuiAudioDeviceSelector extends GuiButton {
     private final String label;
 
     public GuiAudioDeviceSelector(int id, int x, int y, int width, int height,
-                                  String label, boolean isInputDevice, int currentIndex) {
+                                  String labelKey, boolean isInputDevice, int currentIndex) {
         super(id, x, y, width, height, "");
-        this.label = label;
-        // Получаем списки из менеджера
+        this.label = I18n.format(labelKey);
         this.displayDevices = isInputDevice ? AudioDeviceManager.INSTANCE.getDisplayMicNames() : AudioDeviceManager.INSTANCE.getDisplaySpeakerNames();
-        // Устанавливаем текущий индекс
         this.selectedIndex = (currentIndex >= 0 && currentIndex < displayDevices.size()) ? currentIndex : 0;
         updateDisplayString();
     }
-
 
     public int cycleDevice() {
         if (displayDevices.isEmpty()) {
@@ -41,13 +37,12 @@ public class GuiAudioDeviceSelector extends GuiButton {
 
     private void updateDisplayString() {
         if (displayDevices.isEmpty() || selectedIndex >= displayDevices.size()) {
-            this.displayString = label + ": " + I18n.format("gui.portableradio.no_devices");
+            this.displayString = this.label + ": " + I18n.format("gui.portableradio.no_devices");
         } else {
             String deviceName = displayDevices.get(selectedIndex);
-            this.displayString = label + ": " + deviceName;
+            this.displayString = this.label + ": " + deviceName;
         }
     }
-
 
     @Override
     public void drawButton(Minecraft mc, int mouseX, int mouseY) {

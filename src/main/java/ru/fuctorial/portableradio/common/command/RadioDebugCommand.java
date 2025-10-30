@@ -6,6 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import ru.fuctorial.portableradio.common.item.ItemWalkieTalkie;
 
 public class RadioDebugCommand extends CommandBase {
@@ -28,7 +29,7 @@ public class RadioDebugCommand extends CommandBase {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (!(sender instanceof EntityPlayer)) {
-            sender.addChatMessage(new ChatComponentText("§cThis command can only be used by players!"));
+            sender.addChatMessage(new ChatComponentTranslation("command.portableradio.player_only"));
             return;
         }
 
@@ -36,26 +37,27 @@ public class RadioDebugCommand extends CommandBase {
         ItemStack held = player.getHeldItem();
 
         if (held == null || !(held.getItem() instanceof ItemWalkieTalkie)) {
-            player.addChatMessage(new ChatComponentText("§cYou must hold a walkie-talkie!"));
+            player.addChatMessage(new ChatComponentTranslation("command.portableradio.hold_radio"));
             return;
         }
 
         ItemWalkieTalkie radio = (ItemWalkieTalkie) held.getItem();
 
-        player.addChatMessage(new ChatComponentText("§a=== Radio NBT Debug ==="));
-        player.addChatMessage(new ChatComponentText("§eRadio ON: §f" + radio.isRadioOn(held)));
-        player.addChatMessage(new ChatComponentText("§eFrequency: §f" + radio.getFrequency(held)));
-        player.addChatMessage(new ChatComponentText("§eMic Volume: §f" + (radio.getMicrophoneVolume(held) * 100) + "%"));
-        player.addChatMessage(new ChatComponentText("§eSpeaker Volume: §f" + (radio.getSpeakerVolume(held) * 100) + "%"));
+        player.addChatMessage(new ChatComponentTranslation("command.portableradio.debug_title"));
+        player.addChatMessage(new ChatComponentTranslation("command.portableradio.radio_on", radio.isRadioOn(held)));
+        player.addChatMessage(new ChatComponentTranslation("command.portableradio.frequency", radio.getFrequency(held)));
+        player.addChatMessage(new ChatComponentTranslation("command.portableradio.mic_volume", (radio.getMicrophoneVolume(held) * 100)));
+        player.addChatMessage(new ChatComponentTranslation("command.portableradio.speaker_volume", (radio.getSpeakerVolume(held) * 100)));
 
 
         if (held.stackTagCompound != null) {
-            player.addChatMessage(new ChatComponentText("§7Raw NBT: " + held.stackTagCompound.toString()));
+            player.addChatMessage(new ChatComponentTranslation("command.portableradio.raw_nbt", held.stackTagCompound.toString()));
         } else {
-            player.addChatMessage(new ChatComponentText("§cNo NBT data found!"));
+            player.addChatMessage(new ChatComponentTranslation("command.portableradio.no_nbt_data"));
         }
     }
 }
+
 
 
 

@@ -67,6 +67,7 @@ public enum AudioTestManager {
             } catch (Exception e) {
                 currentTestStatus = "gui.portableradio.error";
                 // e.printStackTrace();
+                PortableRadio.logger.error("Error during microphone test", e);
             } finally {
                 isMicTesting = false;
                 currentAudioLevel = 0.0f;
@@ -85,6 +86,7 @@ public enum AudioTestManager {
         micTestThread.setDaemon(true);
         micTestThread.start();
     }
+
 
     public void testSpeaker(int speakerIndex, float volume) {
         if (isSpeakerTesting) {
@@ -128,6 +130,7 @@ public enum AudioTestManager {
             } catch (Exception e) {
                 currentTestStatus = "gui.portableradio.error";
                 // e.printStackTrace();
+                PortableRadio.logger.error("Error during speaker test", e);
             } finally {
                 isSpeakerTesting = false;
                 if (speaker != null) {

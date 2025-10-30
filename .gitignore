@@ -33,9 +33,6 @@ bin/
 logs/
 
 # Build artifacts and dependencies
-libs/
-deps/
-mcp/
 forge/
 jars/
 versions/

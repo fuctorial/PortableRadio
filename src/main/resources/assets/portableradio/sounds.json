@@ -3,7 +3,7 @@
     "category": "player",
     "sounds": [
       {
-        "name": "portableradio:radio_on",
+        "name": "radio_on",
         "stream": false
       }
     ]
@@ -12,9 +12,9 @@
     "category": "player",
     "sounds": [
       {
-        "name": "portableradio:radio_off",
+        "name": "radio_off",
         "stream": false
       }
     ]
   }
-}в
+}

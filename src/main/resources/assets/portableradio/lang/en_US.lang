@@ -1,5 +1,7 @@
+# Item Names
 item.walkieTalkie.name=Walkie Talkie
 
+# GUI Elements (Radio Interface)
 gui.portableradio.frequency=Frequency
 gui.portableradio.microphone=Microphone
 gui.portableradio.speaker=Speaker
@@ -10,30 +12,44 @@ gui.portableradio.status.on=ON
 gui.portableradio.status.off=OFF
 gui.portableradio.hint.ptt=Hold %s to transmit
 gui.portableradio.no_devices=No devices found
+gui.portableradio.default_device_name=Default
+
+# Audio Test Statuses and Errors (for GUI)
 gui.portableradio.testing_microphone=Testing microphone...
 gui.portableradio.testing_speaker=Testing speaker...
 gui.portableradio.test_completed=Test completed
-gui.portableradio.error=Error during test
+gui.portableradio.error=§cError during test!
 gui.portableradio.microphone_not_found=Microphone not found
 gui.portableradio.speaker_not_found=Speaker not found
-gui.portableradio.failed_open_microphone=Failed to open microphone
-gui.portableradio.failed_open_speaker=Failed to open speaker
+gui.portableradio.failed_open_microphone=§cFailed to open microphone!
+gui.portableradio.failed_open_speaker=§cFailed to open speaker!
 gui.portableradio.select_microphone_first=Select a microphone first
 gui.portableradio.select_speaker_first=Select a speaker first
 
+# Chat Messages
 chat.portableradio.turned_on=Radio turned ON
 chat.portableradio.turned_off=Radio turned OFF
 chat.portableradio.no_microphone_selected=No microphone selected! Open radio settings.
-chat.portableradio.microphone_unavailable=Selected microphone unavailable
-
-tooltip.portableradio.toggle=Hold %s and right-click to toggle
-tooltip.portableradio.open_gui=%s to open settings
-
-key.portableradio.p_t_t=Push-to-Talk
-key.categories.portableradio=Portable Radio
+chat.portableradio.microphone_unavailable=§cSelected microphone unavailable
 chat.portableradio.turn_on_first=§eTurn the radio on first (§fShift + RMB§e)!
 chat.portableradio.cooldown=§cPlease wait...
 
+# Tooltips
 tooltip.portableradio.toggle=Toggle Power: %s
 tooltip.portableradio.open_gui=Open Settings: %s
 tooltip.portableradio.transmit=Transmit (Hold): %s
+
+# Keybinds
+key.portableradio.p_t_t=Push-to-Talk
+key.categories.portableradio=Portable Radio
+
+# /radiodebug Command Messages
+command.portableradio.player_only=§cThis command can only be used by players!
+command.portableradio.hold_radio=§cYou must hold a walkie-talkie!
+command.portableradio.debug_title=§a=== Radio NBT Debug ===
+command.portableradio.radio_on=§eRadio ON: §f%s
+command.portableradio.frequency=§eFrequency: §f%s
+command.portableradio.mic_volume=§eMic Volume: §f%s%%
+command.portableradio.speaker_volume=§eSpeaker Volume: §f%s%%
+command.portableradio.raw_nbt=§7Raw NBT: %s
+command.portableradio.no_nbt_data=§cNo NBT data found!

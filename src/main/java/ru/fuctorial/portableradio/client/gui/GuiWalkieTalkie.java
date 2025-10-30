@@ -33,7 +33,6 @@ public class GuiWalkieTalkie extends GuiContainer {
     private GuiButton testMicButton;
     private GuiButton testSpeakerButton;
 
-    // Таймеры для отсчета
     private long micTestStartTime = 0;
     private long speakerTestStartTime = 0;
 
@@ -111,20 +110,21 @@ public class GuiWalkieTalkie extends GuiContainer {
         this.frequencySlider = new GuiSlider(1, componentX, yOffset, componentWidth, 20, I18n.format("gui.portableradio.frequency"), 100.0F, 500.0F, container.getFrequency());
         this.buttonList.add(this.frequencySlider);
         yOffset += 25;
-        this.microphoneSelector = new GuiAudioDeviceSelector(2, componentX, yOffset, componentWidth - 25, 20, I18n.format("gui.portableradio.microphone"), true, ClientConfig.getSelectedMicIndex());
+        this.microphoneSelector = new GuiAudioDeviceSelector(2, componentX, yOffset, componentWidth - 25, 20, "gui.portableradio.microphone", true, ClientConfig.getSelectedMicIndex()); // ИСПРАВЛЕНИЕ: Используем ключ I18n для GuiAudioDeviceSelector
         this.buttonList.add(this.microphoneSelector);
         this.buttonList.add(this.testMicButton);
         yOffset += 25;
         this.micVolumeSlider = new GuiSlider(6, componentX, yOffset, componentWidth, 20, I18n.format("gui.portableradio.mic_volume"), 0.0F, 200.0F, container.getMicrophoneVolume());
         this.buttonList.add(this.micVolumeSlider);
         yOffset += 25;
-        this.speakerSelector = new GuiAudioDeviceSelector(3, componentX, yOffset, componentWidth - 25, 20, I18n.format("gui.portableradio.speaker"), false, ClientConfig.getSelectedSpeakerIndex());
+        this.speakerSelector = new GuiAudioDeviceSelector(3, componentX, yOffset, componentWidth - 25, 20, "gui.portableradio.speaker", false, ClientConfig.getSelectedSpeakerIndex()); // ИСПРАВЛЕНИЕ: Используем ключ I18n для GuiAudioDeviceSelector
         this.buttonList.add(this.speakerSelector);
         this.buttonList.add(this.testSpeakerButton);
         yOffset += 25;
         this.speakerVolumeSlider = new GuiSlider(7, componentX, yOffset, componentWidth, 20, I18n.format("gui.portableradio.speaker_volume"), 0.0F, 200.0F, container.getSpeakerVolume());
         this.buttonList.add(this.speakerVolumeSlider);
     }
+
 
 
     @Override
@@ -193,8 +193,16 @@ public class GuiWalkieTalkie extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         final int WIDGET_TEXT_COLOR = 14737632;
-        String title = "Walkie Talkie";
+        String title = I18n.format("item.walkieTalkie.name");
         this.fontRendererObj.drawString(title, (this.xSize / 2 - this.fontRendererObj.getStringWidth(title) / 2), 8, WIDGET_TEXT_COLOR);
+
+        String testStatusKey = AudioTestManager.INSTANCE.getTestStatus();
+        if (!testStatusKey.isEmpty()) {
+            String testStatusDisplay = I18n.format(testStatusKey);
+            int statusX = (this.xSize / 2 - this.fontRendererObj.getStringWidth(testStatusDisplay) / 2);
+            int statusY = this.ySize - 30;
+            this.fontRendererObj.drawString(testStatusDisplay, statusX, statusY, WIDGET_TEXT_COLOR);
+        }
     }
 
     @Override

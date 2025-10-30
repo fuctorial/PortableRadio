@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import ru.fuctorial.portableradio.PortableRadio;
 import ru.fuctorial.portableradio.common.audio.AudioConfig;
 import ru.fuctorial.portableradio.common.audio.RadioEffectProcessor;
@@ -67,7 +68,7 @@ public class AudioCaptureThread extends Thread {
                 microphone = findMicrophoneByName(selectedMicName);
                 if (microphone == null) {
                     PortableRadio.logger.error("Microphone not found: " + selectedMicName);
-                    showChatMessage("§cМикрофон не найден: " + selectedMicName);
+                    showChatMessage("chat.portableradio.microphone_not_found", selectedMicName); // ИСПРАВЛЕНИЕ: I18n
                     return;
                 }
             } else {
@@ -95,7 +96,7 @@ public class AudioCaptureThread extends Thread {
 
         } catch (LineUnavailableException e) {
             PortableRadio.logger.error("Microphone unavailable: " + e.getMessage());
-            showChatMessage("§c" + I18n.format("chat.portableradio.microphone_unavailable"));
+            showChatMessage("chat.portableradio.microphone_unavailable"); // ИСПРАВЛЕНИЕ: I18n
         } catch (Exception e) {
             PortableRadio.logger.error("Error during audio capture", e);
         } finally {
@@ -211,6 +212,17 @@ public class AudioCaptureThread extends Thread {
                 Minecraft mc = Minecraft.getMinecraft();
                 if (mc.thePlayer != null) {
                     mc.thePlayer.addChatMessage(new ChatComponentText(message));
+                }
+            }
+        });
+    }
+    private void showChatMessage(final String key, final Object... args) {
+        clientThreadTasks.add(new Runnable() {
+            @Override
+            public void run() {
+                Minecraft mc = Minecraft.getMinecraft();
+                if (mc.thePlayer != null) {
+                    mc.thePlayer.addChatMessage(new ChatComponentTranslation(key, args));
                 }
             }
         });
