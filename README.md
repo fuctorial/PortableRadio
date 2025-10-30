@@ -47,6 +47,7 @@ If you wish to create a resource pack for PortableRadio, please note the followi
 The mod currently includes support for the following languages:
 *   **English (en_US)**
 *   **Russian (ru_RU)**
+*   **Chinese (Simplified) (zh_CN)**
 
 Contributions for other languages are welcome!
 
