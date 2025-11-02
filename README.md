@@ -1,37 +1,59 @@
-# anatawa12's ForgeGradle 1.2 fork for Gradle 4.4.1+ - example project
+# PortableRadio for Minecraft 1.7.10
 
-This is an example mod using the [fork of ForgeGradle-1.2 made by anatawa12](https://github.com/anatawa12/ForgeGradle-1.2).
-This fork supports Gradle 4.4.1 and later. This example project uses Gradle 5.6.4.
+A Minecraft 1.7.10 mod that adds walkie-talkies with fully functional in-game voice chat, designed for realism and performance.
 
-## How to use this example project
+![PortableRadio GUI](https://i.imgur.com/s3TwICQ.png)
 
-You can download this example project from [here](https://github.com/anatawa12/ForgeGradle-example/archive/master.zip), or use it as a template on Github.
-This project can be used as a replacement for Forge's 1.7.10 MDK.
+## 🌟 Features
 
-## How to replace ForgeGradle 1.2. with anatawa12's fork
-Although this example project has some differences to Forge's 1.7.10 MDK, anatawa12's fork of ForgeGradle 1.2 can be used by most projects with only minimal changes to their Gradle build script.
+*   **In-Game Voice Chat:** Communicate with other players using a realistic walkie-talkie item.
+*   **Adjustable Frequency:** Set a frequency on your radio to talk in private channels.
+*   **Push-to-Talk (PTT):** Hold down a key (`V` by default) to transmit your voice.
+*   **Voice Activation Gate:** A smart noise gate automatically detects your voice, reducing background noise and network usage.
+*   **Device Selection:** Choose your preferred microphone and speaker devices directly from the in-game GUI.
+*   **Volume Controls:** Independently adjust your microphone transmission volume and speaker reception volume.
+*   **Live Device Testing:** Test your microphone and speakers in-game to find the perfect settings.
+*   **Radio Sound Effects:** An audio filter is applied to voice data to make it sound like a real radio transmission.
+*   **HUD Indicator:** A simple, non-intrusive icon on your screen shows whether your radio is on or off.
 
-Here is a list of changes to Forge's 1.7.10 MDK Gradle build script, to replace the official ForgeGradle 1.2 plugin with the fork. These changes are likely to work with most projects based on Forge's 1.7.10 MDK.
+## 💿 Installation
 
-In the repositories block of the buildscript section, add jcenter, and switch the Forge maven to use HTTPS instead of HTTP:
-```diff
-     repositories {
-         mavenCentral()
-         maven {
-             name = "forge"
--            url = "http://files.minecraftforge.net/maven"
-+            url = "https://maven.minecraftforge.net/"
-         }
-```
+**Prerequisites:**
+*   Minecraft 1.7.10
+*   [Minecraft Forge](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.7.10.html) (Recommended latest version)
 
-Also in the dependencies block of the buildscript section, change the dependency on Forge's official ForgeGradle 1.2 to the fork:
-```diff
-     dependencies {
--        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-+        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
-+            changing = true
-+        }
-     }
-```
+#### For Players (Server & Client)
 
-The Gradle wrapper should also be changed to use Gradle 4.4.1 or higher. <!--Currently, the plugin [does not support Gradle 6.x](https://github.com/anatawa12/ForgeGradle-1.2/issues/9), although this may change in the future. As such, the latest version of Gradle this plugin supports is Gradle 5.6.4.-->
+**Important:** This mod is required on both the server and all clients wishing to connect. It will not work if installed only on one side.
+
+1.  Download the latest `.jar` file from the [Releases](https://github.com/fuctorial/PortableRadio/releases) page.
+2.  Place the downloaded `.jar` file into your `mods` folder.
+3.  Launch the game or server. Enjoy!
+
+## 🎙️ How to Use
+
+*   **Open GUI:** Right-click with the Walkie-Talkie in hand to open the settings menu.
+*   **Toggle Power:** Sneak (hold `Shift`) and right-click to turn the radio on or off.
+*   **Transmit:** Hold down the Push-to-Talk key (default `V`) to speak. A sound will play to indicate the start and end of your transmission.
+
+## 🎨 Customization & Resource Packs
+
+If you wish to create a resource pack for PortableRadio, please note the following texture requirements. The mod includes a validator to check texture sizes.
+
+*   The main GUI texture (`assets/portableradio/textures/gui/gui_walkie_talkie.png`) **must be 256x256 pixels** to render correctly.
+
+## 🌐 Localization
+
+The mod currently includes support for the following languages:
+*   **English (en_US)**
+*   **Russian (ru_RU)**
+*   **Chinese (Simplified) (zh_CN)**
+
+Contributions for other languages are welcome!
+
+## 🛠️ Building from Source
+
+1.  Clone the repository: `git clone https://github.com/fuctorial/PortableRadio.git`
+2.  Navigate to the project directory and set up the workspace: `gradlew setupDecompWorkspace`
+3.  Build the project: `gradlew build`
+4.  The compiled `.jar` file will be located in the `build/libs/` directory.
