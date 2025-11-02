@@ -37,7 +37,7 @@ dependencies {
     // обычная зависимость — компилируется и попадёт в runtime
     implementation 'club.minnced:opus-java-api:1.1.1'
     implementation 'club.minnced:opus-java-natives:1.1.1'
-    implementation 'net.java.dev.jna:jna:5.5.0'
+    implementation 'net.java.dev.jna:jna:5.18.1'
 
     // к черту - 'io.github.jaredmdobson:concentus:1.0.2'
 }
