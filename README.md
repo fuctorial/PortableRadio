@@ -24,7 +24,7 @@ A Minecraft 1.7.10 mod that adds walkie-talkies with fully functional in-game vo
 2.  Place the downloaded `.jar` file into your `mods` folder.
 3.  Launch the game or server. Enjoy!
 
-## 🎙️ How to Use
+## How to Use
 
 *   **Open GUI:** Right-click with the Walkie-Talkie in hand to open the settings menu.
 *   **Toggle Power:** Sneak (hold `Shift`) and right-click to turn the radio on or off.
