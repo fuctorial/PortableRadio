@@ -1,0 +1,8 @@
+[
+  {
+    "modid": "portableradio",
+    "name": "PortableRadio",
+    "version": "${version}",
+    "mcversion": "${mcversion}"
+  }
+]

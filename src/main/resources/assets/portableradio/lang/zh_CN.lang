@@ -1,0 +1,57 @@
+# 物品名称
+item.walkieTalkie.name=对讲机
+
+# GUI元素 (对讲机界面)
+gui.portableradio.frequency=频率
+gui.portableradio.microphone=麦克风
+gui.portableradio.speaker=扬声器
+gui.portableradio.mic_volume=麦克风音量
+gui.portableradio.speaker_volume=扬声器音量
+gui.portableradio.status=状态
+gui.portableradio.status.on=开
+gui.portableradio.status.off=关
+gui.portableradio.hint.ptt=按住 %s 发言
+gui.portableradio.no_devices=未找到设备
+gui.portableradio.default_device_name=默认设备
+
+# 音频测试状态和错误 (GUI)
+gui.portableradio.testing_microphone=正在测试麦克风...
+gui.portableradio.testing_speaker=正在测试扬声器...
+gui.portableradio.test_completed=测试完成
+gui.portableradio.error=§c测试出错！
+gui.portableradio.microphone_not_found=未找到麦克风
+gui.portableradio.speaker_not_found=未找到扬声器
+gui.portableradio.failed_open_microphone=§c未能打开麦克风！
+gui.portableradio.failed_open_speaker=§c未能打开扬声器！
+gui.portableradio.select_microphone_first=请先选择麦克风
+gui.portableradio.select_speaker_first=请先选择扬声器
+
+# 聊天消息
+chat.portableradio.turned_on=对讲机已开启
+chat.portableradio.turned_off=对讲机已关闭
+chat.portableradio.no_microphone_selected=未选择麦克风！请打开对讲机设置。
+chat.portableradio.microphone_unavailable=§c所选麦克风不可用
+chat.portableradio.turn_on_first=§e请先开启对讲机（§fShift + 右键§e）！
+chat.portableradio.cooldown=§c请稍候...
+
+# 工具提示
+tooltip.portableradio.toggle=开启/关闭: %s
+tooltip.portableradio.open_gui=设置: %s
+tooltip.portableradio.transmit=通话 (按住): %s  h
+key.keyboard.shift=Shift
+key.mouse.right=鼠标右键
+
+# 键位绑定
+key.portableradio.p_t_t=按键通话
+key.categories.portableradio=便携式对讲机
+
+# /radiodebug 命令消息
+command.portableradio.player_only=§c此命令只能由玩家使用！
+command.portableradio.hold_radio=§c您必须手持对讲机！
+command.portableradio.debug_title=§a=== 对讲机NBT调试 ===
+command.portableradio.radio_on=§e对讲机开启: §f%s
+command.portableradio.frequency=§e频率: §f%s
+command.portableradio.mic_volume=§e麦克风音量: §f%s%%
+command.portableradio.speaker_volume=§e扬声器音量: §f%s%%
+command.portableradio.raw_nbt=§7原始NBT: %s
+command.portableradio.no_nbt_data=§c未找到NBT数据！

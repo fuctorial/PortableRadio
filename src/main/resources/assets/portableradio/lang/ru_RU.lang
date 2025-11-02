@@ -1,0 +1,57 @@
+# Названия предметов
+item.walkieTalkie.name=Портативная рация
+
+# Элементы GUI (Интерфейс рации)
+gui.portableradio.frequency=Частота
+gui.portableradio.microphone=Микрофон
+gui.portableradio.speaker=Динамик
+gui.portableradio.mic_volume=Громкость микрофона
+gui.portableradio.speaker_volume=Громкость динамика
+gui.portableradio.status=Статус
+gui.portableradio.status.on=ВКЛ
+gui.portableradio.status.off=ВЫКЛ
+gui.portableradio.hint.ptt=Зажмите %s для передачи
+gui.portableradio.no_devices=Устройства не найдены
+gui.portableradio.default_device_name=По умолчанию
+
+# Статусы и ошибки тестов аудио (для GUI)
+gui.portableradio.testing_microphone=Тестирование микрофона...
+gui.portableradio.testing_speaker=Тестирование динамика...
+gui.portableradio.test_completed=Тест завершен
+gui.portableradio.error=§cОшибка во время теста!
+gui.portableradio.microphone_not_found=Микрофон не найден
+gui.portableradio.speaker_not_found=Динамик не найден
+gui.portableradio.failed_open_microphone=§cНе удалось открыть микрофон!
+gui.portableradio.failed_open_speaker=§cНе удалось открыть динамик!
+gui.portableradio.select_microphone_first=Сначала выберите микрофон
+gui.portableradio.select_speaker_first=Сначала выберите динамик
+
+# Сообщения в чате
+chat.portableradio.turned_on=Рация включена
+chat.portableradio.turned_off=Рация выключена
+chat.portableradio.no_microphone_selected=Микрофон не выбран! Откройте настройки рации.
+chat.portableradio.microphone_unavailable=§cВыбранный микрофон недоступен
+chat.portableradio.turn_on_first=§eСначала включите рацию (§fShift + ПКМ§e)!
+chat.portableradio.cooldown=§cПодождите немного...
+
+# Подсказки (Tooltip)
+tooltip.portableradio.toggle=Включение: %s
+tooltip.portableradio.open_gui=Настройки: %s
+tooltip.portableradio.transmit=Передача (удерж.): %s
+key.keyboard.shift=Shift
+key.mouse.right=ПКМ
+
+# Настройки клавиш
+key.portableradio.p_t_t=Передача голоса
+key.categories.portableradio=Портативная рация
+
+# Сообщения команды /radiodebug
+command.portableradio.player_only=§cЭту команду могут использовать только игроки!
+command.portableradio.hold_radio=§cВы должны держать рацию в руке!
+command.portableradio.debug_title=§a=== Отладка NBT рации ===
+command.portableradio.radio_on=§eРация ВКЛ: §f%s
+command.portableradio.frequency=§eЧастота: §f%s
+command.portableradio.mic_volume=§eГромкость микрофона: §f%s%%
+command.portableradio.speaker_volume=§eГромкость динамика: §f%s%%
+command.portableradio.raw_nbt=§7Сырые NBT: %s
+command.portableradio.no_nbt_data=§cNBT данные не найдены!
