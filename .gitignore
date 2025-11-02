@@ -1,0 +1,11 @@
+.github/
+.gradle
+.idea
+eclipse/
+gradle/
+run
+appveyor.yml
+gradle.properties
+gradlew
+gradlew.bat
+settings.gradle
