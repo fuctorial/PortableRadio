@@ -4,7 +4,7 @@ A Minecraft 1.7.10 mod that adds walkie-talkies with fully functional in-game vo
 
 ![PortableRadio GUI](https://i.imgur.com/s3TwICQ.png)
 
-## 🌟 Features
+## Features
 
 *   **In-Game Voice Chat:** Communicate with other players using a realistic walkie-talkie item.
 *   **Adjustable Frequency:** Set a frequency on your radio to talk in private channels.
@@ -15,12 +15,6 @@ A Minecraft 1.7.10 mod that adds walkie-talkies with fully functional in-game vo
 *   **Live Device Testing:** Test your microphone and speakers in-game to find the perfect settings.
 *   **Radio Sound Effects:** An audio filter is applied to voice data to make it sound like a real radio transmission.
 *   **HUD Indicator:** A simple, non-intrusive icon on your screen shows whether your radio is on or off.
-
-## 💿 Installation
-
-**Prerequisites:**
-*   Minecraft 1.7.10
-*   [Minecraft Forge](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.7.10.html) (Recommended latest version)
 
 #### For Players (Server & Client)
 
@@ -36,13 +30,7 @@ A Minecraft 1.7.10 mod that adds walkie-talkies with fully functional in-game vo
 *   **Toggle Power:** Sneak (hold `Shift`) and right-click to turn the radio on or off.
 *   **Transmit:** Hold down the Push-to-Talk key (default `V`) to speak. A sound will play to indicate the start and end of your transmission.
 
-## 🎨 Customization & Resource Packs
-
-If you wish to create a resource pack for PortableRadio, please note the following texture requirements. The mod includes a validator to check texture sizes.
-
-*   The main GUI texture (`assets/portableradio/textures/gui/gui_walkie_talkie.png`) **must be 256x256 pixels** to render correctly.
-
-## 🌐 Localization
+## Localization
 
 The mod currently includes support for the following languages:
 *   **English (en_US)**
@@ -50,10 +38,3 @@ The mod currently includes support for the following languages:
 *   **Chinese (Simplified) (zh_CN)**
 
 Contributions for other languages are welcome!
-
-## 🛠️ Building from Source
-
-1.  Clone the repository: `git clone https://github.com/fuctorial/PortableRadio.git`
-2.  Navigate to the project directory and set up the workspace: `gradlew setupDecompWorkspace`
-3.  Build the project: `gradlew build`
-4.  The compiled `.jar` file will be located in the `build/libs/` directory.
