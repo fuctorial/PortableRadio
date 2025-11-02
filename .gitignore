@@ -1,11 +1,33 @@
-.github/
-.gradle
-.idea
+# === IDEs ===
+# Intellij IDEA
+.idea/
+
+# Eclipse
+.classpath
+.project
+.settings/
 eclipse/
-gradle/
-run
+bin/
+out/
+
+# macOS
+.DS_Store
+
+# === Gradle ===
+# Игнорировать кэш и временные файлы Gradle
+.gradle/
+# Игнорировать папку со скомпилированным проектом и артефактами
+build/
+
+# === Minecraft Forge ===
+# Папка для тестового запуска игры. Содержит миры, логи, скриншоты и т.д.
+run/
+# Пользовательские аргументы JVM
+user_jvm_args.txt
+# Логи
+logs/
+*.log
+
+# === CI/CD ===
+# Если вы не используете AppVeyor, можно игнорировать
 appveyor.yml
-gradle.properties
-gradlew
-gradlew.bat
-settings.gradle
