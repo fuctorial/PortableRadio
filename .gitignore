@@ -1,33 +1,21 @@
-# === IDEs ===
-# Intellij IDEA
 .idea/
-
-# Eclipse
-.classpath
-.project
-.settings/
+*.iml
+*.ipr
+*.iws
 eclipse/
-bin/
-out/
-
-# macOS
-.DS_Store
-
-# === Gradle ===
-# Игнорировать кэш и временные файлы Gradle
+.project
+.classpath
+.settings/
 .gradle/
-# Игнорировать папку со скомпилированным проектом и артефактами
 build/
-
-# === Minecraft Forge ===
-# Папка для тестового запуска игры. Содержит миры, логи, скриншоты и т.д.
+out/
 run/
-# Пользовательские аргументы JVM
+eclipse/
 user_jvm_args.txt
-# Логи
-logs/
+.DS_Store
+Thumbs.db
 *.log
-
-# === CI/CD ===
-# Если вы не используете AppVeyor, можно игнорировать
-appveyor.yml
+crash-reports/
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+.something-releaser.json
